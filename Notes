@@ -1,0 +1,31 @@
+Hashmap:
+hash map has 16 buckets which is hashtable , every bucket has nodes and node contains final int hash final k key v value and address of next node.
+which node will decide based on hash.
+when 16 elements accuipied by 16 buckets in 16 nodes then when we insert 17 th element then it keep in one bucket of 16 buckets
+that bucket will have 2 nodes then right, like that it will keep adding nodes in 16 buckets, and internally it will maitain one load factor
+when the load factor threshold reaches it will double the capacity that means 32 like that it will go on.
+
+HashMap has as hash method in put method, it will check if we override the hashode method then it will call our method else
+it will call the Object class hashcode
+
+when the hash value is same then internally it keep the data in same bucket in the different node that linkedlist will be
+created so every node has pointer of next node, when collission occocur again and again, it will go node by node until it reach the null then it will keep the data
+before the null node.
+ before it was while reading hashmap also every bucket get locked until read operearion completed by one thread but
+ with new implementation it will only lock that bucket, so that other thread can read from the another buckets
+
+ what if we are keeping same key with different value then, it will iterate the linked list and call the equals method with the key value
+ then it will override the old value.
+ override the vale of that key.
+
+ java 8 add new features for hashmap that when the threshold reaches in bucket of node count it will convert
+ linked list to balance tree so the performace will be increase rathen then going node by node search mechanism will be different
+ bcoz of this we need to implements comparable interface for key so that it wiill be easy for hashmap to create balance tree
+
+ when we are use get method, based on key hash value will caluclate and find the bucket in veriticale way,
+ once the bucket is find then using equal method check the equality of key hash code OR content of key and exact node and get the value from that node.
+
+HASHSET:
+hash set constructor also create the HashMap but how the data will store in hashmap for hash set, since hash set only
+has value add to that, so what happens whatever the value we are adding internally consider as key and do hashing and find
+out the bucket value and keep the added element as key and as value one dummy Object will be kept, this Object does not have any value.
